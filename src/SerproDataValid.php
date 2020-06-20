@@ -25,6 +25,7 @@ class SerproDataValid
     {
         $this->consumerKey = config('serpro-datavalid.consumerKey');
         $this->consumerSecret = config('serpro-datavalid.consumerSecret');
+        $this->sandbox = config('serpro-datavalid.sandbox');
         $this->http = $http;
     }
 
@@ -38,12 +39,7 @@ class SerproDataValid
         try {
 
             if ($isSandBox) {
-                return array(
-                    "scope" => "am_application_scope default",
-                    "token_type" => "Bearer",
-                    "expires_in" => "never",
-                    "access_token" => "4e1a1858bdd584fdc077fb7d80f39283"
-                );
+                return "4e1a1858bdd584fdc077fb7d80f39283";
             }
 
             $res = $this->httpClient()->post($this->apiBaseUrl . "token", [
@@ -63,7 +59,7 @@ class SerproDataValid
     {
         try {
 
-            $token = $this->getBearer();
+            $token = $this->getBearer($this->sandbox);
 
             $res = $this->httpClient()->post($this->apiBaseUrl . "datavalid/v2/" . $endpoint, [
                 'headers' => [

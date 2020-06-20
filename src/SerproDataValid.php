@@ -6,6 +6,7 @@ use Exception;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
 use lucasgiovanny\SerproDataValid\Exceptions\CouldNotSendRequest;
+use lucasgiovanny\SerproDataValid\Exceptions\InvalidRequestOrResponse;
 
 class SerproDataValid
 {
@@ -23,18 +24,13 @@ class SerproDataValid
 
     protected $http;
 
-    public function __construct(
-        string $consumerKey = null,
-        string $consumerSecret = null,
-        bool $sandbox = false,
-        HttpClient $http = null
-    ) {
-
-        $this->consumerKey = $consumerKey;
-        $this->consumerSecret = $consumerSecret;
+    public function __construct(HttpClient $http = null)
+    {
+        $this->consumerKey = config('serpro-datavalid.consumerKey');
+        $this->consumerSecret = config('serpro-datavalid.consumerSecret');
         $this->http = $http;
 
-        if ($sandbox) {
+        if (config('serpro-datavalid.sandbox')) {
             $this->setSandBox();
         }
     }
@@ -53,7 +49,6 @@ class SerproDataValid
 
     protected function setBearer()
     {
-
         if (!$this->consumerKey || !$this->consumerSecret) {
             throw CouldNotSendRequest::apiAccessNotDefined();
         }
@@ -76,7 +71,7 @@ class SerproDataValid
     public function send(string $endpoint, array $data)
     {
 
-        $token = $this->barear ?? $this->setBearer($this->sandbox);
+        $token = $this->barear ?? $this->setBearer();
 
         if (!$token) {
             throw CouldNotSendRequest::bearerTokenNotDefined();
@@ -95,7 +90,13 @@ class SerproDataValid
                 ]
             );
 
-            return json_decode((string) $res->getBody());
+            $json = json_decode((string) $res->getBody());
+
+            if ($json->cpf_disponivel) {
+                return $json;
+            } else {
+                throw InvalidRequestOrResponse::cpfDoesnotExists();
+            }
         } catch (ClientException $exception) {
             throw CouldNotSendRequest::serviceRespondeWithAnError($exception->getMessage());
         }

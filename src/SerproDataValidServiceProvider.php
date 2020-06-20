@@ -21,7 +21,11 @@ class SerproDataValidServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton('SerproDataValid', function () {
-            return new SerproDataValid();
+            return new SerproDataValid(
+                config('serpro-datavalid.consumerKey'),
+                config('serpro-datavalid.consumerSecret'),
+                config('serpro-datavalid.sandbox')
+            );
         });
     }
 }

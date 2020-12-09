@@ -30,7 +30,15 @@ This package can be installed via composer:
 
 ## Usage
 
-To use this package, you just need to import the Person Facades.
+1. Add your credentials to `.env` file
+
+```
+SERPRO_DATAVALID_CONSUMER_KEY=
+SERPRO_DATAVALID_CONSUMER_SECRET=
+SERPRO_DATAVALID_SANDBOX=false
+```
+
+2. To use this package, you just need to import the Person Facades.
 
 ```php
 use  lucasgiovanny\SerproDataValid\Person;

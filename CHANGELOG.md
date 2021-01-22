@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-serpro-datavalid` will be documented in this file
 
+## 0.3.3 - 2020-12-09
+
+- Add instructions to readme.md
+
 ## 0.3.2 - 2020-05-15
 
 - Updates on README.md file

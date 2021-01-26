@@ -2,6 +2,7 @@
     "name": "lucasgiovanny/laravel-serpro-datavalid",
     "description": "Laravel package to easily use Serpro Datavalid API",
     "license": "MIT",
+    "keywords": ["laravel", "serpro", "datavalid"],
     "authors": [
         {
             "name": "Lucas Giovanny",

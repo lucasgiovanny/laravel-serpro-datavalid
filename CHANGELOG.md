@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-serpro-datavalid` will be documented in this file
 
+## 0.3.4 - 2021-01-26
+
+- Update to support Laravel 7 and 8
+
 ## 0.3.3 - 2020-12-09
 
 - Add instructions to readme.md

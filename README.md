@@ -8,18 +8,6 @@ This package makes it easy to use Serpro [Datavalid](https://servicos.serpro.gov
 
 - [Usage](#usage)
 
-- [Changelog](#changelog)
-
-- [Testing](#testing)
-
-- [Security](#security)
-
-- [Contributing](#contributing)
-
-- [Credits](#credits)
-
-- [License](#license)
-
 ## Installation
 
 This package can be installed via composer:

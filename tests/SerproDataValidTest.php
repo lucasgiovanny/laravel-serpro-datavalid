@@ -1,6 +1,6 @@
 <?php
 
-namespace lucasgiovanny\SerproDataValid\Tests;
+namespace LucasGiovanny\SerproDataValid\Tests;
 
 use Orchestra\Testbench\TestCase;
 

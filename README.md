@@ -39,7 +39,7 @@ SERPRO_DATAVALID_SANDBOX=false
 2. To use this package, you just need to import the Person Facades.
 
 ```php
-use  lucasgiovanny\SerproDataValid\Person;
+use  LucasGiovanny\SerproDataValid\Person;
 ```
 
 ### Available methods
@@ -62,7 +62,7 @@ use  lucasgiovanny\SerproDataValid\Person;
 Example:
 
 ```php
-use  lucasgiovanny\SerproDataValid\Person;
+use  LucasGiovanny\SerproDataValid\Person;
 
 $data = [
 'nome'  =>  "João da Silva",
@@ -86,7 +86,7 @@ $validation = Person::rawValidation("00000000000", $data);
 Example:
 
 ```php
-use  lucasgiovanny\SerproDataValid\Person;
+use  LucasGiovanny\SerproDataValid\Person;
 
 $validation = Person::validateName("00000000000", "João da Silva");
 //return true or false;
@@ -106,7 +106,7 @@ $validation = Person::validateName("00000000000", "João da Silva", true);
 Example:
 
 ```php
-use  lucasgiovanny\SerproDataValid\Person;
+use  LucasGiovanny\SerproDataValid\Person;
 
 $validation = Person::validateGender("00000000000", "F"); // gender needs to be "F" or "M"
 //return true or false;
@@ -121,7 +121,7 @@ $validation = Person::validateGender("00000000000", "F"); // gender needs to be 
 Example:
 
 ```php
-use  lucasgiovanny\SerproDataValid\Person;
+use  LucasGiovanny\SerproDataValid\Person;
 
 $validation = Person::isBrazilian("00000000000");
 //return true or false;
@@ -138,7 +138,7 @@ $validation = Person::isBrazilian("00000000000");
 Example:
 
 ```php
-use  lucasgiovanny\SerproDataValid\Person;
+use  LucasGiovanny\SerproDataValid\Person;
 
 $parents = [
 	'mother_name' => 'Eurica Magalhães Souza';
@@ -163,7 +163,7 @@ $validation = Person::validateParentsName("00000000000", $parents, true);
 Example:
 
 ```php
-use  lucasgiovanny\SerproDataValid\Person;
+use  LucasGiovanny\SerproDataValid\Person;
 
 $validation = Person::isCPFRegular("00000000000");
 //return true or false;
@@ -179,7 +179,7 @@ $validation = Person::isCPFRegular("00000000000");
 Example:
 
 ```php
-use  lucasgiovanny\SerproDataValid\Person;
+use  LucasGiovanny\SerproDataValid\Person;
 
 $validation = Person::validatePhoto("00000000000", base64_encode($photo));
 //return true or false;

@@ -1,12 +1,12 @@
 <?php
 
-namespace lucasgiovanny\SerproDataValid;
+namespace LucasGiovanny\SerproDataValid;
 
 use Exception;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
-use lucasgiovanny\SerproDataValid\Exceptions\CouldNotSendRequest;
-use lucasgiovanny\SerproDataValid\Exceptions\InvalidRequestOrResponse;
+use LucasGiovanny\SerproDataValid\Exceptions\CouldNotSendRequest;
+use LucasGiovanny\SerproDataValid\Exceptions\InvalidRequestOrResponse;
 
 class SerproDataValid
 {

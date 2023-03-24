@@ -1,10 +1,10 @@
 <?php
 
-namespace lucasgiovanny\SerproDataValid\Models;
+namespace LucasGiovanny\SerproDataValid\Models;
 
 use Carbon\Carbon;
-use lucasgiovanny\SerproDataValid\Exceptions\InvalidRequestOrResponse;
-use lucasgiovanny\SerproDataValid\SerproDataValid;
+use LucasGiovanny\SerproDataValid\Exceptions\InvalidRequestOrResponse;
+use LucasGiovanny\SerproDataValid\SerproDataValid;
 use stdClass;
 
 class Person extends BaseModel

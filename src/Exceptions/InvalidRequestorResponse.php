@@ -1,6 +1,6 @@
 <?php
 
-namespace lucasgiovanny\SerproDataValid\Exceptions;
+namespace LucasGiovanny\SerproDataValid\Exceptions;
 
 class InvalidRequestOrResponse extends \Exception
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace lucasgiovanny\SerproDataValid\Models;
+namespace LucasGiovanny\SerproDataValid\Models;
 
 class BaseModel
 {

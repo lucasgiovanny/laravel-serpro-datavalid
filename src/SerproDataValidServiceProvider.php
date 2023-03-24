@@ -1,6 +1,6 @@
 <?php
 
-namespace lucasgiovanny\SerproDataValid;
+namespace LucasGiovanny\SerproDataValid;
 
 use Illuminate\Support\ServiceProvider;
 

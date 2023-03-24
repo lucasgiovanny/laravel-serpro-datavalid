@@ -2,6 +2,13 @@
 
 All notable changes to `laravel-serpro-datavalid` will be documented in this file
 
+## 1.0.0 - 2023-03-24
+
+- Stable version
+- Require PHP 8.0
+- Support Laravel 9 and 10
+- Drop support for Laravel 7 and 8
+
 ## 0.3.4 - 2021-01-26
 
 - Update to support Laravel 7 and 8

@@ -6,7 +6,7 @@ class CouldNotSendRequest extends \Exception
 {
     public static function serviceRespondeWithAnError($message)
     {
-        return new static('Serpro Datavalid API Response: ' . $message);
+        return new static('Serpro Datavalid API Response: '.$message);
     }
 
     public static function bearerTokenNotDefined()

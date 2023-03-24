@@ -11,6 +11,6 @@ class InvalidRequestOrResponse extends \Exception
 
     public static function facialBioNotAvailable()
     {
-        return new static("Facial verification not avaiable for this CPF.");
+        return new static('Facial verification not avaiable for this CPF.');
     }
 }

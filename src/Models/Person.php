@@ -2,14 +2,13 @@
 
 namespace LucasGiovanny\SerproDataValid\Models;
 
-use Carbon\Carbon;
 use LucasGiovanny\SerproDataValid\Exceptions\InvalidRequestOrResponse;
 use LucasGiovanny\SerproDataValid\SerproDataValid;
 use stdClass;
 
 class Person extends BaseModel
 {
-    protected $endpoint = "validate/pf";
+    protected $endpoint = 'validate/pf';
 
     protected $api;
 
@@ -20,8 +19,9 @@ class Person extends BaseModel
 
     public function rawValidation(string $cpf, array $answers)
     {
-        $this->endpoint = "validate/pf-face";
+        $this->endpoint = 'validate/pf-face';
         $data = $this->mountDataArray($cpf, $answers);
+
         return $this->send($data);
     }
 
@@ -34,6 +34,7 @@ class Person extends BaseModel
             $return = new stdClass;
             $return->nome = $res->nome;
             $return->nome_similaridade = $res->nome_similaridade;
+
             return $return;
         }
 
@@ -66,13 +67,12 @@ class Person extends BaseModel
             'filiacao' => [
                 'nome_mae' => isset($parents['mother_name']) ? $parents['mother_name'] : null,
                 'nome_pai' => isset($parents['father_name']) ? $parents['father_name'] : null,
-            ]
+            ],
         ]);
         $res = $this->send($data);
 
         if ($getSimilarity) {
-
-            $return = array();
+            $return = [];
 
             if (isset($parents['mother_name'])) {
                 $mother = new stdClass;
@@ -108,7 +108,7 @@ class Person extends BaseModel
 
     public function validatePhoto(string $cpf, string $photo)
     {
-        $this->endpoint = "validate/pf-face";
+        $this->endpoint = 'validate/pf-face';
         $data = $this->mountDataArray($cpf, ['biometria_face' => $photo]);
         $res = $this->send($data);
 
@@ -133,9 +133,9 @@ class Person extends BaseModel
     {
         return [
             'key' => [
-                'cpf' => $cpf
+                'cpf' => $cpf,
             ],
-            'answer' => $answers
+            'answer' => $answers,
         ];
     }
 }

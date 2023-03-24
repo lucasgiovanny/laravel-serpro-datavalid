@@ -2,7 +2,6 @@
 
 namespace LucasGiovanny\SerproDataValid;
 
-use Exception;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
 use LucasGiovanny\SerproDataValid\Exceptions\CouldNotSendRequest;
@@ -10,11 +9,11 @@ use LucasGiovanny\SerproDataValid\Exceptions\InvalidRequestOrResponse;
 
 class SerproDataValid
 {
-    protected $apiBaseUrl = "https://apigateway.serpro.gov.br/";
+    protected $apiBaseUrl = 'https://apigateway.serpro.gov.br/';
 
-    protected $apiService = "datavalid/";
+    protected $apiService = 'datavalid/';
 
-    protected $apiVersion = "v2/";
+    protected $apiVersion = 'v2/';
 
     protected $consumerKey;
 
@@ -42,22 +41,21 @@ class SerproDataValid
 
     protected function setSandBox()
     {
-        $this->apiVersion = "v2/";
-        $this->apiService = "datavalid-demonstracao/";
-        $this->barear = "4e1a1858bdd584fdc077fb7d80f39283";
+        $this->apiVersion = 'v2/';
+        $this->apiService = 'datavalid-demonstracao/';
+        $this->barear = '4e1a1858bdd584fdc077fb7d80f39283';
     }
 
     protected function setBearer()
     {
-        if (!$this->consumerKey || !$this->consumerSecret) {
+        if (! $this->consumerKey || ! $this->consumerSecret) {
             throw CouldNotSendRequest::apiAccessNotDefined();
         }
 
         try {
-
-            $res = $this->httpClient()->post($this->apiBaseUrl . "token", [
+            $res = $this->httpClient()->post($this->apiBaseUrl.'token', [
                 'query' => ['grant_type' => 'client_credentials'],
-                'auth' => [$this->consumerKey, $this->consumerSecret]
+                'auth' => [$this->consumerKey, $this->consumerSecret],
             ]);
 
             $json = json_decode((string) $res->getBody());
@@ -70,23 +68,21 @@ class SerproDataValid
 
     public function send(string $endpoint, array $data)
     {
-
         $token = $this->barear ?? $this->setBearer();
 
-        if (!$token) {
+        if (! $token) {
             throw CouldNotSendRequest::bearerTokenNotDefined();
         }
 
         try {
-
             $res = $this->httpClient()->post(
-                $this->apiBaseUrl . $this->apiService . $this->apiVersion . $endpoint,
+                $this->apiBaseUrl.$this->apiService.$this->apiVersion.$endpoint,
                 [
                     'headers' => [
-                        'Authorization' => 'Bearer ' . $token,
-                        'Content-Type' => 'application/json'
+                        'Authorization' => 'Bearer '.$token,
+                        'Content-Type' => 'application/json',
                     ],
-                    'body' => json_encode($data)
+                    'body' => json_encode($data),
                 ]
             );
 

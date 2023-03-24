@@ -2,6 +2,9 @@
 
 This package makes it easy to use Serpro [Datavalid](https://servicos.serpro.gov.br/datavalid/) API with Laravel framework.
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/lucasgiovanny/laravel-serpro-datavalid?label=last%20version)
+![GitHub](https://img.shields.io/github/license/lucasgiovanny/laravel-serpro-datavalid)
+
 ## Contents
 
 - [Installation](#installation)

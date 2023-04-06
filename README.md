@@ -1,4 +1,6 @@
-# Serpro Datavalid package for Laravel
+# Laravel Serpro Datavalid
+
+<img src="art/logo.png" width="500" alt="Laravel Serpro Datavalid">
 
 This package makes it easy to use Serpro [Datavalid](https://servicos.serpro.gov.br/datavalid/) API with Laravel framework.
 
